@@ -20,3 +20,19 @@ function productsFragment(fProductList, productCardFunc) {
   });
   return fragmentElement;
 }
+
+export function displayProductsByMenu(products, productCardFunc, sectionTitle) {
+  const sectDisplayCatg = document.querySelector("#sectDisplayCatg");
+
+  const SectHeading = document.createElement("h3");
+  SectHeading.textContent = `${sectionTitle}`;
+
+  const fragmentEle = productsFragment(products, productCardFunc);
+  const productLists = document.createElement("ul");
+  if (!productLists) {
+  }
+
+  productLists.appendChild(fragmentEle);
+  sectDisplayCatg.appendChild(SectHeading);
+  sectDisplayCatg.appendChild(productLists);
+}

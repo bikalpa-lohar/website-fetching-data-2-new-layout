@@ -8,7 +8,6 @@ let currentCount = 0;
 
 const slideNext = document.querySelector("#slideNext");
 slideNext.addEventListener("click", () => {
-  console.log("aaaaaa");
   if (Array.from(slideListItems).length - 1 > currentCount) {
     currentCount++;
     allSlidingList.style.transform = `translateX(${-37.5 * currentCount}vw)`;
