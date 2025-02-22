@@ -297,7 +297,7 @@ header{
 
 #limitProductList li .product-fig{
     width: 100%;
-    aspect-ratio: 32/35;
+    aspect-ratio: 1;
     overflow: hidden;
     margin-bottom: 1vw;
     /* position: relative; */
@@ -306,7 +306,7 @@ header{
 
 #limitProductList li .product-img{
     width: 100%;
-    aspect-ratio: 32/33;
+    aspect-ratio: 1;
     object-fit: contain;
     mix-blend-mode: color-burn;
     transition: 0.3s ease;
@@ -324,20 +324,20 @@ header{
 }
 
 #limitProductList li .product-info > h3{
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-weight: 500;
     color: rgba(18, 19, 16, 0.905);
     margin-bottom: 0.5rem;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 25rem;
+    width: 23vw;
     display: inline-block;
     white-space: nowrap;
     /*  */
 }
 
 #limitProductList li .product-info > p{
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     font-weight: 400;
     margin-bottom: 0.5rem;
 }

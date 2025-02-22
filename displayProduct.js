@@ -10,6 +10,7 @@ export function displayProducts(products, productCardFunc, id) {
 function productsFragment(fProductList, productCardFunc) {
   const productCardList = fProductList.map((product) => {
     const productsListItem = document.createElement("li");
+    productsListItem.setAttribute("id", `${product.id}`)
     const cardItem = productCardFunc(product);
     productsListItem.appendChild(cardItem);
     return productsListItem;

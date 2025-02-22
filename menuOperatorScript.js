@@ -2,53 +2,72 @@ import { fetchData } from "./fetchProduct.js";
 import { displayProductsByMenu } from "./displayProduct.js";
 import { createlimitProductCard } from "./createProductCard.js";
 
-
-async function fetchAndDisplay(productPath, ulId) {
+async function fetchAndDisplay(productPath, catgName, ulId) {
   const allProductList = await fetchData(productPath);
 
-  displayProductsByMenu(allProductList, createlimitProductCard, ulId);
+  displayProductsByMenu(allProductList, createlimitProductCard, catgName);
+
+  // displayProducts(allProductList, createlimitProductCard, ulId);
 }
-
-
 const menuList = document.querySelectorAll(".menu > li");
-Array.from(menuList).forEach((catg) => {
-    catg.addEventListener("click", e => {
-        e.preventDefault();
-        removeAndAddActiveStyle(catg);
+menuList.forEach(displayByCatg);
 
-        const sectDisplayCatg = document.querySelector("#sectDisplayCatg");
-        sectDisplayCatg.innerHTML = "";
+const CatgList = document.querySelectorAll(".asideCatgList > li");
+CatgList.forEach(displayByCatg);
 
-        if(e.target.textContent ==="ALL"){
-            const allProductPath = "/products";
-            fetchAndDisplay(allProductPath, `Products`);
-            
-        }else if(e.target.textContent ==="MEN'S"){
-            const menProductPath = "/products/category/men's clothing";
-            fetchAndDisplay(menProductPath, `Men's Clothing`);
-            
-        }else if(e.target.textContent ==="WOMEN'S"){
-            const womenProductPath = "/products/category/women's clothing";
-            fetchAndDisplay(womenProductPath, `Women's Clothing`);
-            
-        }else if(e.target.textContent ==="JEWELERY"){
-            const jeweleryProductPath = "/products/category/jewelery";
-            fetchAndDisplay(jeweleryProductPath, `Jewelery`);
-            
-        }else if(e.target.textContent ==="ELECTRONICS"){
-            const electronicsProductPath = "/products/category/electronics";
-            fetchAndDisplay(electronicsProductPath, `Electronics`);
-            
-        }
-    })
-})
+function displayByCatg(catg) {
+  catg.addEventListener("click", (e) => {
+    e.preventDefault();
+    removeAndAddActiveStyle(catg);
 
+    const sectDisplayCatg = document.querySelector("#sectDisplayCatg");
+    sectDisplayCatg.innerHTML = "";
+
+    if (e.target.textContent.toUpperCase() === "ALL") {
+      const allProductPath = "/products";
+      fetchAndDisplay(allProductPath, `Products`);
+
+    } else if (e.target.textContent.toUpperCase() === "MEN'S") {
+      const menProductPath = "/products/category/men's clothing";
+      fetchAndDisplay(menProductPath, `Men's Clothing`);
+
+    } else if (e.target.textContent.toUpperCase() === "WOMEN'S") {
+      const womenProductPath = "/products/category/women's clothing";
+      fetchAndDisplay(womenProductPath, `Women's Clothing`);
+
+    } else if (e.target.textContent.toUpperCase() === "JEWELERY") {
+      const jeweleryProductPath = "/products/category/jewelery";
+      fetchAndDisplay(jeweleryProductPath, `Jewelery`);
+      
+    } else if (e.target.textContent.toUpperCase() === "ELECTRONICS") {
+      const electronicsProductPath = "/products/category/electronics";
+      fetchAndDisplay(electronicsProductPath, `Electronics`);
+    }
+  });
+}
 
 function removeAndAddActiveStyle(element) {
-    Array.from(menuList).forEach(item => {
-      item.classList.remove("active")
-    })
-  
-    element.classList.add("active")
+  menuList.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  CatgList.forEach((item) => {
+    item.classList.remove("active-two");
+  });
+  element.classList.add("active-two");
+  element.classList.add("active");
 }
-  
+
+
+
+
+// const liProduct = document.querySelectorAll("#sectDisplayCatg > ul >li");
+// Array.from(liProduct).forEach((item) => {
+//   item.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     removeAndAddActiveStyle(element)
+//     console.log(item.getAttribute("id"))
+//     // const aProductCardPath = `/products/${}`;
+//     // fetchAndDisplay(aProductCardPath, `singleProduct`)
+//   })
+// })
