@@ -1,6 +1,24 @@
-import { fetchData } from "./fetchProduct.js";
-import { displayProducts } from "./displayProduct.js";
-import { createlimitProductCard } from "./createProductCard.js";
+import { fetchData } from "./JS/fetchProduct.js";
+import { displayProducts } from "./JS/displayProduct.js";
+import { createlimitProductCard } from "./JS/createProductCard.js";
+import "./styles/style.css";
+import "./images/main-img.jpg";
+import "./images/about.jpg";
+import "./images/articleSect.jpg";
+import "./images/cart.svg";
+import "./images/categorySectImg.jpg";
+import "./images/person-icon.svg";
+import "./images/search.svg";
+import "./images/slide-img (1).jpg";
+import "./images/slide-img (2).jpg";
+import "./images/slide-img (3).jpg";
+import "./images/slide-img (4).jpg";
+import "./images/slide-img (5).jpg";
+import "./images/slide-img (6).jpg";
+import "./images/slide-img (7).jpg";
+import "./images/slide-img (8).jpg";
+
+
 
 const allSlidingList = document.querySelector(".sliding-list");
 const slideListItems = document.querySelectorAll(".slide-list-item");

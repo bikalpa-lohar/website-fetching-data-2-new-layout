@@ -1,6 +1,8 @@
-import { fetchData } from "./fetchProduct.js";
-import { displayProductsByMenu } from "./displayProduct.js";
-import { createlimitProductCard } from "./createProductCard.js";
+import { fetchData } from "./JS/fetchProduct.js";
+import { displayProductsByMenu } from "./JS/displayProduct.js";
+import { createlimitProductCard } from "./JS/createProductCard.js";
+import "./styles/style.css";
+import "./styles/style2.css";
 
 async function fetchAndDisplay(productPath, catgName, ulId) {
   const allProductList = await fetchData(productPath);
@@ -62,7 +64,7 @@ function removeAndAddActiveStyle(element) {
 
 
 // const liProduct = document.querySelectorAll("#sectDisplayCatg > ul >li");
-// Array.from(liProduct).forEach((item) => {
+// liProduct.forEach((item) => {
 //   item.addEventListener("click", (e) => {
 //     e.preventDefault();
 //     removeAndAddActiveStyle(element)
